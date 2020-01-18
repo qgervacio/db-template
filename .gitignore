@@ -1,0 +1,13 @@
+# Copyright 2020 qgervac.io -  All rights reserved.
+
+.tmp/
+
+*.json
+
+# uncomment once you can encrypt/decrypt
+#*.env
+#*.conf
+
+*.yml
+*.yaml
+!docker-compose.yml

@@ -1,0 +1,21 @@
+# Copyright 2020 qgervac.io -  All rights reserved.
+
+version: "3"
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+      - ENV=${ENV}
+    image: qgervac.io/template/db-11.5:${TAG}-${ENV}
+    restart: always
+    environment:
+    - POSTGRES_USER=${FLYWAY_USER}
+    - POSTGRES_PASSWORD=${FLYWAY_PASSWORD}
+    - POSTGRES_DB=${FLYWAY_DATABASE}
+    ports:
+    - 5432:5432
+    volumes:
+    - .tmp/pgdata:/var/lib/postgresql/data
